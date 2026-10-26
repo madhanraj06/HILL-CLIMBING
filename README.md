@@ -1,6 +1,8 @@
 <h1>ExpNo 5 : Implement Simple Hill Climbing Algorithm</h1> 
-<h3>Name:             </h3>
-<h3>Register Number:             </h3>
+<h3>Name:MADHANRAJ P</h3>
+<h3>Register Number:212223220052</h3>
+<h3>Date: 26-10-2026
+
 <H3>Aim:</H3>
 <p>Implement Simple Hill Climbing Algorithm and Generate a String by Mutating a Single Character at each iteration </p>
 <h2> Theory: </h2>
@@ -38,24 +40,32 @@ Feedback is provided in terms of heuristic function
 <h3>Step-4:</h3>
 <p> Lopp Step -2 and Step-3  until we achieve the score to be Zero to achieve Global Minima.</p>
 
-<hr>
-<h2>Sample Input and Output</h2>
-<h2>Sample String:</h2> Artificial Intelligence
+<h2>Program:</h2>
+
+```
+import random
+import string
+
+answer = input("Enter the String: ")
+s = "".join(random.choices(string.printable, k=len(answer)))
+
+while s != answer:
+    score = sum(abs(ord(s[i]) - ord(answer[i])) for i in range(len(answer)))
+    print("Solution:", s, "Score:", score)
+
+    i = random.randint(0, len(answer)-1)
+    new = s[:i] + random.choice(string.printable) + s[i+1:]
+
+    if abs(ord(new[i]) - ord(answer[i])) < abs(ord(s[i]) - ord(answer[i])):
+        s = new
+
+print("Solution:", s, "Score: 0")
+print("Target String Found!")
+```
 <h2>Output:</h2>
-Score: 643  Solution :  8RzF:oG ]%;CPORRMe!zGvk<br>
-Score: 609  Solution :  8RzF:oG ]%;CPqRRMe!zGvk<br>
-Score: 604  Solution :  8RzF:oG ]%;CPqRRMe!zGqk<br>
-Score: 594  Solution :  8RzF:oG ]%;CPqRRWe!zGqk<br>
-Score: 551  Solution :  8RzF:oGK]%;CPqRRWe!zGqk<br>
-Score: 551  Solution :  8RzF:oGK]%;CPqRRWe!zGqk<br>
-Score: 551  Solution :  8RzF:oGK]%;CPqRRWe!zGqk<br>
-Score: 551  Solution :  8RzF:oGK]%;CPqRRWe!zGqk<br>
-Score: 551  Solution :  8RzF:oGK]%;CPqRRWe!zGqk<br>
-....................................................<br>
-..................................................<br>
-................................................<br>
-Score: 1  Solution :  Artificial Intelligencf<br>
-Score: 1  Solution :  Artificial Intelligencf<br>
-Score: 1  Solution :  Artificial Intelligencf<br>
-Score: 1  Solution :  Artificial Intelligencf<br>
-Score: 0  Solution :  Artificial Intelligence<br>
+<img width="893" height="462" alt="Screenshot 2026-10-26 090823" src="https://github.com/user-attachments/assets/ebff15a4-49ae-4c04-a863-4609e43dc593" />
+
+<hr>
+<h3>Result:</h3>
+<hr>
+<p>Thus,Hill climbing experiment was done successfully.</p>
